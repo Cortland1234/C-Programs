@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stat.h": "c",
+        "errno.h": "c",
+        "semaphore.h": "c",
+        "fcntl.h": "c",
+        "string.h": "c",
+        "unistd.h": "c"
+    }
+}

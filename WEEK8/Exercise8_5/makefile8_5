@@ -1,0 +1,20 @@
+CC=gcc
+
+CFLAGS=-Wall -g
+
+PWD= $(shell pwd)
+
+LIBDIR=-L $(PWD)
+
+LIBS=-lmy_math
+
+all: libmy_math.so main.c
+	$(CC) $(CFLAGS) $(OBJECTS) main.c -o test_8_5 $(LIBS) -lm
+
+libmy_math.so: my_sin.h my_sin.c my_cos.h my_cos.c my_tan.h my_tan.c
+	$(CC) -fPIC -c my_sin.c -o my_sin.o -c my_cos.c -o my_cos.o -c my_tan.c -o my_tan.o 
+
+	$(CC) -shared -o libtestlib.so my_sin.o my_cos.o my_tan.o
+
+
+

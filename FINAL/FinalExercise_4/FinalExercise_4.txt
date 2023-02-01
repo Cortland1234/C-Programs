@@ -1,0 +1,168 @@
+CSCV 352 System Programming + Unix
+
+CORTLAND DIEHM
+
+DR. DUREN
+
+12/5/2022
+
+
+Description
+-----------
+There are 10 questions, each worth 10 points, for a total of 100 points toward your final exercise grade.
+
+Instructions
+------------
+Use this document as your answer sheet to complete the exercise.  
+
+When completed, submit your completed answer to the D2L Assignments page as your final exercise. 
+
+Questions
+---------
+
+1.	Which of the following statements is incorrect and why? 
+
+a)	if (x >= y)  printf(“%d\n”, x);
+
+b)	if (x <= y)  printf(“%d\n”, x);
+
+c)	if (x ><= y) printf(“%d\n”, x); 
+
+d)	if (x == y)  printf(“%d\n”, x);
+
+
+Answer: c is wrong. ><= is an invalid bitwise operation.
+
+
+2.	Identify the character or value specified by the array index based on the following declaration:
+
+	char array[21] = "Programming is easy!";
+
+	Example:  array[6]
+
+ 	Answer: m
+
+A. array[8]
+
+Answer: i
+
+B. array[0]
+
+Answer: P
+
+C. array[7]
+
+Answer: m
+
+D. array[4]
+
+Answer: r
+
+E. array[20]
+
+Answer: null
+
+
+3.	What is the difference between Call by Value and Call by Reference when calling a function with parameters and how are the conventions handled in C?  If it’s helpful, provide an example illustrating the difference.
+
+Answer: When calling by value, you pass the VALUES of variables into the function as parameters. When calling by reference, you pass the ADDRESS of a variable as the parameter. When calling by reference, you can maniuplate the value of the variable; when calling by value, the function cannot change the value of the variable. 
+
+
+
+4.	Replace the following for loop with the equivalent implementation using a while loop:
+
+for (i=1; i<=148; i++)
+    printf ("%d\n", i + i);
+
+Answer: while (i <= 148)
+	{
+	   printf("%d\n", i + i)
+	   i++;
+	}
+
+
+5.	Consider the following code segment (assuming this is run on a 32-bit machine):
+
+    int x = 2147483647;
+    x += 23;
+    printf("%d\n", x);
+
+What value is printed for x?  Explain the reason for the value.  Hint: write a small program if it helps you find the answer.
+
+Answer: x = 214748370. "x += 23" just means "x = (x + 23)", which translates to 2147483647 + 23.
+
+
+
+6.	Answer TRUE or FALSE for the following two questions about Blocking and Non-Blocking programs:
+
+A.	In a program using blocking Input/Output, the program is put to sleep while waiting for input.
+
+Answer: TRUE
+
+B.	In a program using non-blocking Input/Output, the read() function will wait until data is available and return the data that was read.
+
+Answer: FALSE
+
+
+
+
+7.	Select the answer that best defines a Thread:
+
+A.	An independent executing entity with its own separate memory space
+
+B.	An independent executing entity which shares all of its memory with other similar executing entities
+
+Answer: B
+
+
+8.	A semaphore is:
+
+a)	A First In First Out Queue
+b)	A resource counting integer whose value can never be less than 0 
+c)	A Last In First Out Stack
+d)	An integer value that always has a value of 0
+
+Answer: B
+
+
+9.	What is wrong with the following sequence of code statements:
+ 
+	char myString[6];
+	strcpy(myString, “ABCDEF”);
+	printf(“%s”, myString); 
+
+Answer: The quotation marks used for "%s" and "ABCDEF" are not recognized as quotation marks. 
+
+
+10.	Consider the following simple program and then answer the question below:
+
+
+#include <stdio.h>
+
+#pragma pack(1)
+typedef struct employee_struct
+{
+    int id;
+    char first_name[40];
+    char last_name[40];
+    char hire_date[32];
+} Employee;
+
+int main()
+{
+    Employee employees[25];
+    Employee *pE1 = employees;
+    Employee *pE2 = employees;
+
+    pE2++;
+
+    printf("%lu\n", (unsigned long)pE2);
+    printf("%lu\n", (unsigned long)pE2 - (unsigned long)pE1);
+    
+    return 0;
+}
+
+
+What value is printed by the printf() statement?  Explain your answer.
+
+Answer: 116. The struct itself is made up of 116 bytes, and since pE2 is incremented it is 116 bytes larger than pE1. Essentially, it is like the following example: (x + 116) - x = 116

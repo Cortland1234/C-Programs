@@ -1,0 +1,44 @@
+(gdb) dissasemble main
+Undefined command: "dissasemble".  Try "help".
+(gdb) disassemble main
+Dump of assembler code for function main:
+   0x0000000000001169 <+0>:     endbr64
+   0x000000000000116d <+4>:     push   %rbp
+   0x000000000000116e <+5>:     mov    %rsp,%rbp
+   0x0000000000001171 <+8>:     sub    $0x20,%rsp
+   0x0000000000001175 <+12>:    mov    %edi,-0x14(%rbp)
+   0x0000000000001178 <+15>:    mov    %rsi,-0x20(%rbp)
+   0x000000000000117c <+19>:    lea    0xe85(%rip),%rax        # 0x2008
+   0x0000000000001183 <+26>:    mov    %rax,-0x8(%rbp)
+   0x0000000000001187 <+30>:    lea    0xe7e(%rip),%rdi        # 0x200c
+   0x000000000000118e <+37>:    callq  0x1060 <puts@plt>
+   0x0000000000001193 <+42>:    lea    0xe90(%rip),%rdi        # 0x202a
+   0x000000000000119a <+49>:    callq  0x1060 <puts@plt>
+   0x000000000000119f <+54>:    lea    0xe9a(%rip),%rdi        # 0x2040
+   0x00000000000011a6 <+61>:    callq  0x1060 <puts@plt>
+   0x00000000000011ab <+66>:    mov    -0x8(%rbp),%rax
+   0x00000000000011af <+70>:    mov    %rax,%rsi
+   0x00000000000011b2 <+73>:    lea    0xeaf(%rip),%rdi        # 0x2068
+   0x00000000000011b9 <+80>:    mov    $0x0,%eax
+   0x00000000000011be <+85>:    callq  0x1070 <printf@plt>
+   0x00000000000011c3 <+90>:    mov    $0x0,%eax
+   0x00000000000011c8 <+95>:    leaveq
+   0x00000000000011c9 <+96>:    retq
+End of assembler dump.
+(gdb) disassemble _start
+Dump of assembler code for function _start:
+   0x0000000000001080 <+0>:     endbr64
+   0x0000000000001084 <+4>:     xor    %ebp,%ebp
+   0x0000000000001086 <+6>:     mov    %rdx,%r9
+   0x0000000000001089 <+9>:     pop    %rsi
+   0x000000000000108a <+10>:    mov    %rsp,%rdx
+   0x000000000000108d <+13>:    and    $0xfffffffffffffff0,%rsp
+   0x0000000000001091 <+17>:    push   %rax
+   0x0000000000001092 <+18>:    push   %rsp
+   0x0000000000001093 <+19>:    lea    0x1a6(%rip),%r8        # 0x1240 <__libc_csu_fini>
+   0x000000000000109a <+26>:    lea    0x12f(%rip),%rcx        # 0x11d0 <__libc_csu_init>
+   0x00000000000010a1 <+33>:    lea    0xc1(%rip),%rdi        # 0x1169 <main>
+   0x00000000000010a8 <+40>:    callq  *0x2f32(%rip)        # 0x3fe0
+   0x00000000000010ae <+46>:    hlt
+End of assembler dump.
+(gdb)
